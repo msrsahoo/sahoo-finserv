@@ -380,6 +380,59 @@ svg{display:block}
   .js .rise,.js .steps:not(.on) .step{opacity:1;transform:none;filter:none}
   .spark .a,.tick path[pathLength],.ico path,.chart .ln{stroke-dashoffset:0}
 }
+/* hero illustration */
+@media (min-width:960px){.hero__grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:none}.hero h1{font-size:clamp(2.4rem,4vw,3.55rem)}}
+.hero__art{width:100%;max-width:600px;margin-inline:auto;justify-self:center}
+.ilx{width:100%;height:auto;overflow:visible}
+@media (max-width:959px){.hero__art{max-width:460px}}
+@media (max-width:600px){.hero__art{justify-self:stretch;width:auto;max-width:none;margin-inline:-1rem}}
+.ilx *{transform-box:fill-box}
+.il-f{animation:ilFloat 6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes ilFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(var(--a,-10px))}}
+.il-flip{transform-origin:center;animation:ilFlip 7s ease-in-out infinite}
+@keyframes ilFlip{0%,70%,100%{transform:scaleX(1)}80%{transform:scaleX(.08)}90%{transform:scaleX(1)}}
+.il-head{transform-origin:50% 100%;animation:ilHead 7s ease-in-out infinite}
+@keyframes ilHead{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}60%{transform:rotate(2deg)}}
+.il-eyes{transform-origin:center;animation:ilBlink 4.5s infinite}
+@keyframes ilBlink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.il-smile{transform-origin:50% 0;animation:ilSmile 7s ease-in-out infinite}
+@keyframes ilSmile{0%,100%{transform:scale(1)}45%,60%{transform:scale(1.1,1.14)}}
+.il-brow{transform-origin:center;animation:ilBrow 7s ease-in-out infinite}
+@keyframes ilBrow{0%,100%{transform:none}45%,60%{transform:translateY(-1.5px)}}
+.il-hand{animation:ilType .42s ease-in-out infinite alternate}
+.il-hand.d2{animation-delay:-.21s}
+@keyframes ilType{to{transform:translateY(-2.5px)}}
+.il-draw{stroke-dasharray:1;stroke-dashoffset:0;animation:ilDraw 6s cubic-bezier(.4,0,.2,1) infinite}
+.il-draw.d2{animation-delay:-2s}
+@keyframes ilDraw{0%{stroke-dashoffset:1;opacity:1}35%,92%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.il-check{stroke-dasharray:1;animation:ilDraw 5s ease-out infinite}
+.il-bars rect{transform-origin:50% 100%;animation:ilBar 6s cubic-bezier(.2,.8,.2,1) infinite}
+.il-bars rect:nth-child(2){animation-delay:.08s}.il-bars rect:nth-child(3){animation-delay:.16s}.il-bars rect:nth-child(4){animation-delay:.24s}.il-bars rect:nth-child(5){animation-delay:.32s}.il-bars rect:nth-child(6){animation-delay:.4s}
+@keyframes ilBar{0%{transform:scaleY(.1)}25%,100%{transform:scaleY(1)}}
+.il-dot{transform-origin:center;animation:ilDot 6s infinite}
+@keyframes ilDot{0%,30%{opacity:0;transform:scale(0)}40%{opacity:1;transform:scale(1.6)}50%,100%{opacity:1;transform:scale(1)}}
+.il-ring{animation:ilRing 6s ease-out infinite}
+@keyframes ilRing{0%{stroke-dasharray:0 100}30%,100%{}}
+.il-prog{transform-origin:0 50%;animation:ilProg 6s ease-out infinite}
+@keyframes ilProg{0%{transform:scaleX(0)}40%,100%{transform:scaleX(1)}}
+.il-shine{animation:ilShine 6s ease-in-out infinite}
+@keyframes ilShine{0%,55%{transform:skewX(-20deg) translateX(0)}85%,100%{transform:skewX(-20deg) translateX(320px)}}
+.il-pulse{animation:ilPulse 5s ease-in-out infinite}
+@keyframes ilPulse{0%,100%{opacity:.8}50%{opacity:1}}
+.il-orbit{animation:ilOrbit 30s linear infinite}
+@keyframes ilOrbit{to{stroke-dashoffset:-240}}
+.il-tw{transform-origin:center;animation:ilTw 3.2s ease-in-out infinite}
+.il-tw.d1{animation-delay:-.8s}.il-tw.d2{animation-delay:-1.6s}.il-tw.d3{animation-delay:-2.4s}
+@keyframes ilTw{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+@media (prefers-reduced-motion:reduce){.ilx *{animation:none!important}.il-draw,.il-check{stroke-dashoffset:0}}
+
+/* 3D hero image */
+.art3d{position:relative;animation:art3dFloat 7s ease-in-out infinite}
+.art3d::before{content:"";position:absolute;inset:-12%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.35),transparent 65%);filter:blur(30px);animation:art3dGlow 6s ease-in-out infinite}
+.art3d img{display:block;width:100%;height:auto;-webkit-mask-image:radial-gradient(closest-side,#000 74%,transparent 100%);mask-image:radial-gradient(closest-side,#000 74%,transparent 100%)}
+@keyframes art3dFloat{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-12px) rotate(.4deg)}}
+@keyframes art3dGlow{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+@media (max-width:600px){.hero__art--3d{margin-inline:0}}
 </style>
 </head>
 <body>
@@ -422,6 +475,12 @@ svg{display:block}
             <a class="btn btn--ghost" href="#services">Explore Services</a>
           </div>
         </div>
+<div class="hero__art hero__art--3d">
+  <div class="art3d">
+    <img src="hero-3d.webp" width="900" height="900" alt="Smiling accountant working on a laptop showing a financial report, with floating rupee coins and growth charts" loading="eager" decoding="async">
+  </div>
+</div>
+
       </div>
     </div>
 
