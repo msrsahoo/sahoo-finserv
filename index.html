@@ -440,6 +440,24 @@ svg{display:block}
 @media (max-width:600px){.hero__art--3d{margin-inline:0}}
 .hero__art--3d{max-width:480px}
 @media (max-width:959px){.hero__art--3d{max-width:400px}}
+.wa-fab{border:0;cursor:pointer;position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px -8px rgba(37,211,102,.7),0 0 0 1px rgba(255,255,255,.25) inset;transition:transform .2s}
+.wa-fab:hover{transform:scale(1.08)}
+.wa-fab svg{width:32px;height:32px;fill:#fff}
+@media (max-width:560px){.wa-fab{right:16px;bottom:16px;width:52px;height:52px}.wa-fab svg{width:28px;height:28px}}
+.wa-box{position:fixed;right:22px;bottom:92px;z-index:61;width:320px;max-width:calc(100vw - 32px);border-radius:18px;overflow:hidden;background:#fff;color:#0B1530;box-shadow:0 24px 60px -20px rgba(0,0,0,.45);opacity:0;transform:translateY(12px) scale(.97);pointer-events:none;transition:.22s ease}
+.wa-box.open{opacity:1;transform:none;pointer-events:auto}
+.wa-box__hd{background:#075E54;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+.wa-box__hd b{font:700 .98rem/1.2 var(--f-display)}
+.wa-box__hd small{display:block;font-size:.75rem;opacity:.85}
+.wa-box__x{margin-left:auto;background:none;border:0;color:#fff;font-size:1.4rem;line-height:1;cursor:pointer}
+.wa-box__bd{padding:14px;background:#ECE5DD}
+.wa-box__bubble{background:#fff;border-radius:0 10px 10px 10px;padding:9px 12px;font-size:.88rem;max-width:85%;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.wa-box__ft{display:flex;gap:8px;padding:10px;background:#fff;border-top:1px solid #eee}
+.wa-box__ft textarea{flex:1;resize:none;border:1px solid #ddd;border-radius:12px;padding:9px 11px;font:400 .9rem/1.4 var(--f-body);color:#0B1530;background:#fff;height:44px}
+.wa-box__ft textarea:focus{outline:2px solid #25D366;border-color:transparent}
+.wa-box__send{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:#25D366;display:grid;place-items:center;cursor:pointer}
+.wa-box__send svg{width:20px;height:20px;fill:#fff}
+@media (max-width:560px){.wa-box{right:16px;bottom:80px}}
 </style>
 </head>
 <body>
@@ -974,5 +992,12 @@ svg{display:block}
   });
 })();
 </script>
+<button class="wa-fab" type="button" aria-label="Chat on WhatsApp" aria-expanded="false" aria-controls="wa-box"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 10 5.2 16 5.2s11 4.7 11 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 2.9 1.1 3.5.9 4.1.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.7-.4z"/></svg></button>
+<div class="wa-box" id="wa-box" role="dialog" aria-label="WhatsApp chat">
+  <div class="wa-box__hd"><div><b>Sahoo Finserv</b><small>Chat with us on WhatsApp</small></div><button class="wa-box__x" type="button" aria-label="Close">&times;</button></div>
+  <div class="wa-box__bd"><div class="wa-box__bubble">Hi there! 👋 How can we help you today?</div></div>
+  <form class="wa-box__ft" id="wa-form"><textarea id="wa-msg" placeholder="Type your message..." aria-label="Your message" required></textarea><button class="wa-box__send" type="submit" aria-label="Send on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5l18-8.5L3 3.5v6.6l12 1.9-12 1.9z"/></svg></button></form>
+</div>
+<script>(function(){var f=document.querySelector('.wa-fab'),b=document.getElementById('wa-box'),m=document.getElementById('wa-msg');function t(o){b.classList.toggle('open',o);f.setAttribute('aria-expanded',o);if(o)setTimeout(function(){m.focus()},200)}f.addEventListener('click',function(){t(!b.classList.contains('open'))});b.querySelector('.wa-box__x').addEventListener('click',function(){t(false)});document.getElementById('wa-form').addEventListener('submit',function(e){e.preventDefault();var v=m.value.trim();if(!v)return;window.open('https://wa.me/919438670653?text='+encodeURIComponent(v),'_blank','noopener');m.value='';t(false)});m.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();document.getElementById('wa-form').requestSubmit()}})})();</script>
 </body>
 </html>
