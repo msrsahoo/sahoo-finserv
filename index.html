@@ -94,6 +94,11 @@ svg{display:block}
 @keyframes drift2{to{transform:translate(-20vw,26vh) scale(.9)}}
 @keyframes drift3{to{transform:translate(-14vw,-30vh) scale(1.1)}}
 
+/* ---------- light theme: soft blue to lavender gradient ---------- */
+:root[data-theme="light"] .bg{background:linear-gradient(160deg,#E3EEFF 0%,#ECEBFF 50%,#F1E8FF 100%)}
+:root[data-theme="light"] .bg::after,:root[data-theme="light"] .orb{display:none}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .bg{background:linear-gradient(160deg,#E3EEFF 0%,#ECEBFF 50%,#F1E8FF 100%)}:root:not([data-theme="dark"]) .bg::after,:root:not([data-theme="dark"]) .orb{display:none}}
+
 /* ---------- glass primitives ---------- */
 .hdr__bar::before,.strip,.card,.tacct,.princ,.tab,.panel,.mchip,.step,.cta,.mailcard,.formcard,.ftr,.dash,.fchip,.btn--ghost,.eyebrow,.iconbtn{
   background:var(--glass-bg);border:1px solid var(--gb);
