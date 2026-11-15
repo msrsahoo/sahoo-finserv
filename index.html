@@ -599,6 +599,21 @@ body:has(.sdlg[open]){overflow:hidden}
 .wa-box__send{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:#25D366;display:grid;place-items:center;cursor:pointer}
 .wa-box__send svg{width:20px;height:20px;fill:#fff}
 @media (max-width:560px){.wa-box{right:16px;bottom:80px}}
+
+/* coloured service cards */
+.svc-grid .card:nth-child(1){--accent:#2563EB;--accent-2:#38BDF8}
+.svc-grid .card:nth-child(2){--accent:#7C3AED;--accent-2:#C084FC}
+.svc-grid .card:nth-child(3){--accent:#059669;--accent-2:#34D399}
+.svc-grid .card:nth-child(4){--accent:#EA580C;--accent-2:#FBBF24}
+.svc-grid .card:nth-child(5){--accent:#0D9488;--accent-2:#22D3EE}
+.svc-grid .card:nth-child(6){--accent:#DB2777;--accent-2:#F472B6}
+.svc-grid .card:nth-child(7){--accent:#4F46E5;--accent-2:#818CF8}
+.svc-grid .card:nth-child(8){--accent:#E11D48;--accent-2:#FB923C}
+.svc-grid .card:nth-child(9){--accent:#0891B2;--accent-2:#A78BFA}
+.svc-grid .card{background-image:linear-gradient(155deg,color-mix(in srgb,var(--accent) 13%,transparent),color-mix(in srgb,var(--accent-2) 4%,transparent) 65%);border-color:color-mix(in srgb,var(--accent) 22%,var(--gb))}
+.svc-grid .card::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.svc-grid .card .ico{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 8px 18px -8px var(--accent)}
+.svc-grid .card h3{color:color-mix(in srgb,var(--accent) 55%,var(--fg))}
 </style>
 </head>
 <body>
