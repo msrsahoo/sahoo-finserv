@@ -699,25 +699,6 @@ body:has(.sdlg[open]){overflow:hidden}
   </section>
 
   <!-- DATA VISUAL -->
-  <section class="sec wrap" data-nav="why" aria-labelledby="ins-h">
-    <div class="insight ink">
-      <div class="insight__top">
-        <div class="sh" style="max-width:36rem">
-          <span class="eyebrow">Financial clarity</span>
-          <h2 id="ins-h">Numbers, made legible</h2>
-          <p class="lead">Good accounting turns scattered entries into a picture you can read at a glance. Move across the chart to explore.</p>
-        </div>
-        <div class="legend" aria-hidden="true"><span><i></i>Inflows</span><span><i class="b"></i>Outflows</span></div>
-      </div>
-      <div class="chart" id="chart"><div class="tip" id="tip"></div></div>
-      <div class="metrics" aria-hidden="true">
-        <div class="mchip" style="--fd:0s"><div><b><span data-count="128">128</span> / 128</b><span>Entries reconciled</span></div></div>
-        <div class="mchip" style="--fd:-2s"><div><b>+<span data-count="2.4" data-dec="1">2.4</span>%</b><span>Month-on-month change</span></div></div>
-        <div class="mchip" style="--fd:-4s"><div><b>Ready</b><span>Return for review</span></div></div>
-      </div>
-      <p class="note">Conceptual illustration. All figures and charts on this page are sample data for demonstration and are not statistics about Sahoo Finserv or its clients.</p>
-    </div>
-  </section>
 
   <!-- PROCESS -->
   <section class="sec wrap" id="process" data-nav="process" aria-labelledby="proc-h">
@@ -932,6 +913,8 @@ body:has(.sdlg[open]){overflow:hidden}
   else steps.classList.add('on');
 
   /* chart */
+  (function(){
+  if(!document.getElementById("chart")&&!document.querySelector(".chart"))return;
   var chart=$('#chart'),tip=$('#tip');
   var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var A=[38,42,40,51,55,52,61,66,63,72,78,84],B=[30,33,35,37,41,40,46,49,48,53,56,60];
@@ -987,6 +970,7 @@ body:has(.sdlg[open]){overflow:hidden}
     new IntersectionObserver(function(es,o){es.forEach(function(en){if(en.isIntersecting){chart.classList.remove('pre');o.disconnect()}})},{threshold:.35}).observe(chart);
   }
 
+  })();
   /* contact: copy + form */
   function copyText(text,btn,target){
     var label=btn.textContent;
