@@ -642,6 +642,24 @@ body:has(.sdlg[open]){overflow:hidden}
 .brand b{font-weight:800;letter-spacing:.01em}
 .brand__a{color:var(--fg)}
 .brand__b{background:linear-gradient(90deg,#1A93C0,#26C0DA);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* CTA redesign */
+.cta--x{background:linear-gradient(135deg,#0B1638 0%,#0E2a5c 55%,#0b4a6e 100%)!important;border:1px solid rgba(125,211,252,.25)!important;color:#fff;box-shadow:0 40px 90px -40px rgba(14,165,233,.6)!important}
+.cta--x::before{background:radial-gradient(520px circle at 15% 0%,rgba(56,189,248,.35),transparent 60%),radial-gradient(480px circle at 100% 100%,rgba(129,140,248,.3),transparent 60%)!important}
+.cta--x::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%)}
+.cta--x h2{color:#fff}
+.cta--x p{color:rgba(226,232,240,.85)}
+.cta__eyebrow{font:600 .72rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#7DD3FC;padding:.45rem .8rem;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35)}
+.cta__chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;max-width:44rem}
+.cta__chips span{font-size:.85rem;color:#E0F2FE;padding:.45rem .85rem;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.cta__btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:.4rem}
+.cta__main{background:linear-gradient(135deg,#0EA5E9,#2563EB)!important;box-shadow:0 14px 30px -12px rgba(14,165,233,.8)}
+.cta__ghost{background:rgba(255,255,255,.08)!important;color:#fff!important;border:1px solid rgba(255,255,255,.3)!important;box-shadow:none!important}
+.cta__ghost:hover{background:rgba(255,255,255,.16)!important}
+.cta__pts{list-style:none;margin:.3rem 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.4rem}
+.cta__pts li{display:flex;align-items:center;gap:.45rem;font-size:.9rem;color:rgba(226,232,240,.9)}
+.cta__pts svg{width:18px;height:18px;padding:2px;border-radius:50%;background:#0EA5E9;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:560px){.cta__btns .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -976,16 +994,6 @@ body:has(.sdlg[open]){overflow:hidden}
 
   <!-- DATA VISUAL -->
 
-
-  <!-- CTA -->
-  <section class="wrap" data-nav="contact" aria-labelledby="cta-h">
-    <div class="cta rise">
-      <h2 id="cta-h">Let’s simplify your finances and <span class="hl">grow your business.</span></h2>
-      <p>Get in touch about accounting, tax, returns, compliance, IT or digital marketing. Tell us what you need and we will take it from there.</p>
-      <a class="btn" href="mailto:contact@sahoofinserv.com">Contact Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <small>contact@sahoofinserv.com</small>
-    </div>
-  </section>
 
   <!-- CONTACT -->
   <section class="sec wrap" id="contact" data-nav="contact" aria-labelledby="con-h">
