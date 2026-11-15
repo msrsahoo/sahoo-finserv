@@ -321,6 +321,49 @@ body:has(.sdlg[open]){overflow:hidden}
 .panel.is-active{display:block;animation:fadein .45s ease both}
 .panel h3{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:.9rem}
 .panel>p{color:var(--muted);max-width:40rem}
+/* why v2 */
+.why .tab{grid-template-columns:auto 1fr auto;align-items:center;gap:.9rem;padding:.85rem 1rem;position:relative;overflow:hidden}
+.why .tab__ic{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:12px;background:var(--accent-soft);color:var(--accent);transition:background .3s,color .3s,transform .3s}
+.why .tab__ic svg,.panel__ic svg,.pgrid svg{width:1.2rem;height:1.2rem;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.why .tab__tx{display:grid;gap:.15rem}
+.why .tab__n{font:600 .75rem/1 var(--f-mono);letter-spacing:.1em;color:var(--muted);opacity:.6}
+.why .tab::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:3px;border-radius:3px;background:linear-gradient(var(--accent),var(--accent-2));transform:scaleY(0);transition:transform .3s}
+.why .tab[aria-selected="true"]::before{transform:scaleY(1)}
+.why .tab[aria-selected="true"] .tab__ic{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;transform:scale(1.05);box-shadow:0 8px 20px -8px var(--accent)}
+.why .tab[aria-selected="true"] .tab__n{color:var(--accent);opacity:1}
+.why .panel{position:relative;overflow:hidden;isolation:isolate;border:1px solid color-mix(in srgb,var(--accent) 30%,var(--gb))}
+.why .panel::after{content:"";position:absolute;z-index:-1;width:24rem;height:24rem;right:-8rem;top:-10rem;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%)}
+.panel__big{position:absolute;z-index:-1;right:1.8rem;top:1.2rem;font:800 clamp(4.5rem,8vw,6.5rem)/1 var(--f-display);letter-spacing:-.06em;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 22%,transparent),transparent 75%);-webkit-background-clip:text;background-clip:text;color:transparent;pointer-events:none}
+.panel__ic{display:grid;place-items:center;width:3.4rem;height:3.4rem;border-radius:16px;margin-bottom:1.1rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 14px 30px -12px var(--accent)}
+.panel__ic svg{width:1.6rem;height:1.6rem}
+.why .panel h3{font-size:clamp(1.7rem,3vw,2.4rem);background:linear-gradient(120deg,var(--fg) 40%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.why .panel>p{font-size:1.05rem;max-width:36rem}
+.pgrid{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr))}
+.pgrid li{display:grid;gap:.7rem;align-content:start;padding:1rem;border-radius:16px;font-size:.92rem;font-weight:500;background:color-mix(in srgb,var(--accent) 7%,transparent);border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);transition:transform .25s,border-color .25s}
+.pgrid li:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.pgrid svg{display:block;padding:.3rem;width:1.6rem;height:1.6rem;border-radius:50%;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.why .panel.is-active .pgrid li{animation:fadein .5s ease both}
+.why .panel.is-active .pgrid li:nth-child(2){animation-delay:.08s}
+.why .panel.is-active .pgrid li:nth-child(3){animation-delay:.16s}
+/* panel v3 */
+.why .panel{border:0;color:#fff;background:linear-gradient(135deg,#0B1B3F 0%,#1D3A8A 58%,#0E7490 100%)!important;box-shadow:0 30px 60px -28px rgba(29,58,138,.65)}
+.why .panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse at 80% 0%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at 80% 0%,#000 10%,transparent 70%)}
+.why .panel::after{background:radial-gradient(circle,rgba(34,211,238,.35),transparent 70%)}
+.why .panel.is-active{display:grid;grid-template-columns:1fr;gap:0 2.2rem;align-items:center}
+@media (min-width:1100px){.why .panel.is-active{grid-template-columns:1.05fr .95fr;grid-template-areas:"ic l" "h l" "p l"}
+ .why .panel__ic{grid-area:ic}.why .panel h3{grid-area:h}.why .panel>p{grid-area:p}.why .pgrid{grid-area:l;margin:0!important}}
+.why .panel__big{right:auto;left:auto;top:auto;bottom:-.9rem;right:1.4rem;font-size:clamp(5rem,9vw,7.5rem);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0));-webkit-background-clip:text;background-clip:text}
+.why .panel__ic{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);box-shadow:0 0 0 6px rgba(255,255,255,.04),0 14px 30px -10px rgba(34,211,238,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.why .panel h3{background:linear-gradient(110deg,#fff 45%,#7DD3FC);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:.8rem}
+.why .panel>p{color:rgba(226,236,255,.82)}
+.why .pgrid{grid-template-columns:1fr;gap:.6rem;counter-reset:pg}
+.why .pgrid li{counter-increment:pg;grid-template-columns:auto 1fr auto;align-items:center;gap:.85rem;padding:.9rem 1rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.why .pgrid li::after{content:"0" counter(pg);font:600 .72rem/1 var(--f-mono);letter-spacing:.1em;color:rgba(186,230,253,.7)}
+.why .pgrid li:hover{transform:translateX(4px);border-color:rgba(125,211,252,.55);background:rgba(255,255,255,.12)}
+.why .pgrid svg{background:linear-gradient(135deg,#38BDF8,#22D3EE);color:#0B1B3F;stroke-width:2.6}
+.why .panel.is-active .pgrid li{animation:slidein .5s ease both}
+@keyframes slidein{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+
 .ticks{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:.7rem}
 .ticks li{display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;border-radius:14px;background:rgba(148,163,184,.07);border:1px solid var(--line)}
 .ticks svg{width:22px;height:22px;flex:none;padding:3px;border-radius:50%;background:var(--accent-soft);fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
@@ -596,46 +639,62 @@ body:has(.sdlg[open]){overflow:hidden}
   <section class="sec wrap" id="why" data-nav="why" aria-labelledby="why-h">
     <div class="sh rise">
       <span class="eyebrow">Why Sahoo Finserv</span>
-      <h2 id="why-h">Why businesses choose Sahoo Finserv</h2>
-      <p class="lead">Six commitments that guide every engagement, from the first conversation to the final filing.</p>
+      <h2 id="why-h">The <span class="hl">Sahoo Finserv</span> advantage</h2>
+      <p class="lead">Six reasons businesses trust us with their numbers, and keep coming back.</p>
     </div>
-    <div class="wgrid">
-        <article class="wcard rise">
-          <div class="wcard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span><span class="wcard__n">01</span></div>
-          <h3>Accurate &amp; Organized</h3>
-          <p>Your numbers are recorded carefully and kept in order, so reviewing them or passing them to someone else is straightforward.</p>
-          <ul class="wcard__l"><li>Consistent record keeping</li><li>Figures reviewed before they are shared</li><li>Supporting documents filed where you can find them</li></ul>
-        </article>
-        <article class="wcard rise">
-          <div class="wcard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><span class="wcard__n">02</span></div>
-          <h3>Professional Approach</h3>
-          <p>Every engagement starts with understanding what you need, then follows a clear and repeatable way of working.</p>
-          <ul class="wcard__l"><li>Scope agreed before work begins</li><li>Financial information handled with discretion</li><li>Deliverables prepared to a professional standard</li></ul>
-        </article>
-        <article class="wcard rise">
-          <div class="wcard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M9 15l2 2 4-4"/></svg></span><span class="wcard__n">03</span></div>
-          <h3>Timely Compliance</h3>
-          <p>Filing and return dates are worked into the plan from the start, so requirements are met without last-minute pressure.</p>
-          <ul class="wcard__l"><li>Due dates identified up front</li><li>Documents requested early</li><li>Reminders as key dates approach</li></ul>
-        </article>
-        <article class="wcard rise">
-          <div class="wcard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg></span><span class="wcard__n">04</span></div>
-          <h3>Clear Communication</h3>
-          <p>Finance does not need to be confusing. We explain what we are doing and what the numbers mean in everyday terms.</p>
-          <ul class="wcard__l"><li>Explanations without unnecessary jargon</li><li>Direct answers to your questions</li><li>A clear view of where your work stands</li></ul>
-        </article>
-        <article class="wcard rise">
-          <div class="wcard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span class="wcard__n">05</span></div>
-          <h3>Practical Financial Insights</h3>
-          <p>Beyond recording and filing, we point out what the numbers suggest, so you have useful context for your next decision.</p>
-          <ul class="wcard__l"><li>Trends worth noticing, highlighted</li><li>Simple summaries instead of raw data</li><li>Observations you can act on</li></ul>
-        </article>
-        <article class="wcard rise">
-          <div class="wcard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span><span class="wcard__n">06</span></div>
-          <h3>Reliable Support</h3>
-          <p>You have a direct contact for questions and follow-up, before, during and after the work.</p>
-          <ul class="wcard__l"><li>Direct contact by email or WhatsApp</li><li>Assistance after delivery, where applicable</li><li>Consistent follow-through</li></ul>
-        </article>
+    <div class="why rise">
+      <div class="tabs" role="tablist" aria-label="Reasons to choose Sahoo Finserv" aria-orientation="vertical">
+        <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true" type="button"><span class="tab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span><span class="tab__tx"><b>Precision in Every Number</b><span>Clean books, zero guesswork</span></span><span class="tab__n" aria-hidden="true">01</span></button>
+        <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1" type="button"><span class="tab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><span class="tab__tx"><b>Professional to the Core</b><span>Structured, discreet, dependable</span></span><span class="tab__n" aria-hidden="true">02</span></button>
+        <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" type="button"><span class="tab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M9 15l2 2 4-4"/></svg></span><span class="tab__tx"><b>Always Ahead of Deadlines</b><span>No penalties, no panic</span></span><span class="tab__n" aria-hidden="true">03</span></button>
+        <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1" type="button"><span class="tab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg></span><span class="tab__tx"><b>Clarity, Not Jargon</b><span>Straight answers you understand</span></span><span class="tab__n" aria-hidden="true">04</span></button>
+        <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1" type="button"><span class="tab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><span class="tab__tx"><b>Insights That Drive Growth</b><span>Numbers turned into decisions</span></span><span class="tab__n" aria-hidden="true">05</span></button>
+        <button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1" type="button"><span class="tab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span><span class="tab__tx"><b>Support You Can Count On</b><span>Before, during and after</span></span><span class="tab__n" aria-hidden="true">06</span></button>
+      </div>
+      <div class="panels">
+        <div class="panel is-active" role="tabpanel" id="p0" aria-labelledby="t0">
+          <span class="panel__big" aria-hidden="true">01</span>
+          <span class="panel__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <h3>Precision in Every Number</h3>
+          <p>Every entry recorded right, every figure double-checked. Your books stay audit-ready, bank-ready and stress-free.</p>
+          <ul class="pgrid"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Consistent, organised records</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Every figure reviewed before sharing</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Documents filed and easy to find</span></li></ul>
+        </div>
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+          <span class="panel__big" aria-hidden="true">02</span>
+          <span class="panel__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span>
+          <h3>Professional to the Core</h3>
+          <p>A clear process from day one. We understand your needs first, then deliver to the standard your business deserves.</p>
+          <ul class="pgrid"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Scope agreed before work begins</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Strict confidentiality of your data</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Polished, professional deliverables</span></li></ul>
+        </div>
+        <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2">
+          <span class="panel__big" aria-hidden="true">03</span>
+          <span class="panel__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M9 15l2 2 4-4"/></svg></span>
+          <h3>Always Ahead of Deadlines</h3>
+          <p>Due dates are built into the plan from the start, so every filing goes in on time, without last-minute pressure.</p>
+          <ul class="pgrid"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Due dates mapped up front</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Documents collected early</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Reminders before key dates</span></li></ul>
+        </div>
+        <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3">
+          <span class="panel__big" aria-hidden="true">04</span>
+          <span class="panel__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg></span>
+          <h3>Clarity, Not Jargon</h3>
+          <p>Finance shouldn't feel complicated. We explain what we're doing and what your numbers mean, in plain language.</p>
+          <ul class="pgrid"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>No unnecessary jargon</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Direct answers to your questions</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Always know where your work stands</span></li></ul>
+        </div>
+        <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4">
+          <span class="panel__big" aria-hidden="true">05</span>
+          <span class="panel__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+          <h3>Insights That Drive Growth</h3>
+          <p>We go beyond filing. We highlight what your numbers are telling you, so every next move is a smarter one.</p>
+          <ul class="pgrid"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Key trends highlighted</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Simple, actionable summaries</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Insights you can act on today</span></li></ul>
+        </div>
+        <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5">
+          <span class="panel__big" aria-hidden="true">06</span>
+          <span class="panel__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span>
+          <h3>Support You Can Count On</h3>
+          <p>One direct point of contact for every question. We stay with you long after the work is delivered.</p>
+          <ul class="pgrid"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Direct contact by email or WhatsApp</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Help even after delivery</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Consistent follow-through</span></li></ul>
+        </div>
+      </div>
     </div>
   </section>
 
