@@ -614,6 +614,18 @@ body:has(.sdlg[open]){overflow:hidden}
 .svc-grid .card::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
 .svc-grid .card .ico{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 8px 18px -8px var(--accent)}
 .svc-grid .card h3{color:color-mix(in srgb,var(--accent) 55%,var(--fg))}
+
+/* sky-blue service dialog */
+.sdlg{--sky:#0EA5E9;--sky2:#38BDF8;background:linear-gradient(165deg,color-mix(in srgb,var(--sky) 14%,var(--glass-solid)),var(--glass-solid) 55%);border-color:color-mix(in srgb,var(--sky) 35%,var(--gb))}
+.sdlg__in::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--sky),var(--sky2),#818CF8)}
+.sdlg .ico{background:linear-gradient(135deg,var(--sky),#2563EB);color:#fff;box-shadow:0 10px 22px -10px var(--sky)}
+.sdlg .lab{color:var(--sky)}
+.sdlg__bd .ticks li{background:color-mix(in srgb,var(--sky) 8%,transparent);border-color:color-mix(in srgb,var(--sky) 25%,var(--line))}
+.sdlg__bd .ticks svg{background:var(--sky);stroke:#fff}
+.sdlg .tag{color:#0369A1;background:color-mix(in srgb,var(--sky) 14%,transparent);border-color:color-mix(in srgb,var(--sky) 35%,transparent)}
+[data-theme="dark"] .sdlg .tag{color:#7DD3FC}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sdlg .tag{color:#7DD3FC}}
+.sdlg__x{border-color:color-mix(in srgb,var(--sky) 45%,var(--gb));color:var(--sky)}
 </style>
 </head>
 <body>
