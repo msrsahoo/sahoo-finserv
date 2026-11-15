@@ -611,6 +611,8 @@ body:has(.sdlg[open]){overflow:hidden}
       <nav class="menu" id="menu" aria-label="Primary">
         <a href="#home" data-link="home">Home</a>
         <a href="#services" data-link="services">Services</a>
+        <a href="#calendar" data-link="calendar">Calendar</a>
+        <a href="#documents" data-link="documents">Checklist</a>
         <a href="#about" data-link="about">About</a>
         <a href="#why" data-link="why">Why Us</a>
         <a href="#process" data-link="process">Process</a>
@@ -724,55 +726,9 @@ body:has(.sdlg[open]){overflow:hidden}
     </div>
   </section>
 
-  <!-- WHO WE HELP -->
-  <section class="sec wrap" id="who" data-nav="services" aria-labelledby="who-h">
-    <div class="sh rise">
-      <span class="eyebrow">Who we help</span>
-      <h2 id="who-h">Built for every stage of your <span class="hl">financial journey</span></h2>
-      <p class="lead">Whether you file one return a year or run a growing team, we tailor our services to where you are today.</p>
-    </div>
-    <div class="agrid">
-      <article class="acard rise">
-        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span><span class="acard__n" aria-hidden="true">01</span></div>
-        <h3>Salaried individuals</h3>
-        <p>Hassle-free returns and smart tax saving, every year.</p>
-        <div class="chips"><span class="chip">ITR filing</span><span class="chip">Form 16</span><span class="chip">Tax saving</span></div>
-      </article>
-      <article class="acard rise">
-        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></span><span class="acard__n" aria-hidden="true">02</span></div>
-        <h3>Small businesses &amp; shops</h3>
-        <p>Clean books and on-time GST, so you can focus on customers.</p>
-        <div class="chips"><span class="chip">Bookkeeping</span><span class="chip">GST returns</span></div>
-      </article>
-      <article class="acard rise">
-        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15l-3-3c1.5-4.5 5-8 10-9-1 5-4.5 8.5-9 10"/><path d="M9 12H5l2-4h5"/><path d="M12 15v4l4-2v-5"/><path d="M6 16c-1.5 1-2 3-2 4 1 0 3-.5 4-2"/></svg></span><span class="acard__n" aria-hidden="true">03</span></div>
-        <h3>Startups &amp; new companies</h3>
-        <p>From incorporation to your first customers, set up right.</p>
-        <div class="chips"><span class="chip">Company / LLP setup</span><span class="chip">Compliance</span><span class="chip">Digital marketing</span></div>
-      </article>
-      <article class="acard rise">
-        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><span class="acard__n" aria-hidden="true">04</span></div>
-        <h3>Professionals &amp; freelancers</h3>
-        <p>Doctors, consultants and creators with income that doesn&rsquo;t fit a payslip.</p>
-        <div class="chips"><span class="chip">ITR</span><span class="chip">Advance tax</span><span class="chip">GST</span></div>
-      </article>
-      <article class="acard rise">
-        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16"/><path d="M8 15l3-4 3 2 5-6"/><path d="M15 7h4v4"/></svg></span><span class="acard__n" aria-hidden="true">05</span></div>
-        <h3>Growing SMEs</h3>
-        <p>Payroll, reporting and systems that scale with your team.</p>
-        <div class="chips"><span class="chip">Payroll &amp; PF/ESI</span><span class="chip">Financial reporting</span><span class="chip">IT services</span></div>
-      </article>
-      <article class="acard rise">
-        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg></span><span class="acard__n" aria-hidden="true">06</span></div>
-        <h3>NRIs &amp; senior citizens</h3>
-        <p>Careful, patient help with returns and planning, wherever you are.</p>
-        <div class="chips"><span class="chip">ITR</span><span class="chip">Tax planning</span></div>
-      </article>
-    </div>
-  </section>
 
   <!-- COMPLIANCE CALENDAR -->
-  <section class="sec wrap" id="calendar" data-nav="services" aria-labelledby="cal-h">
+  <section class="sec wrap" id="calendar" data-nav="calendar" aria-labelledby="cal-h">
     <div class="sh rise">
       <span class="eyebrow">Compliance calendar</span>
       <h2 id="cal-h">Never miss a <span class="hl">due date</span></h2>
@@ -822,7 +778,7 @@ body:has(.sdlg[open]){overflow:hidden}
   </section>
 
   <!-- DOCUMENTS CHECKLIST -->
-  <section class="sec wrap" id="documents" data-nav="services" aria-labelledby="doc-h">
+  <section class="sec wrap" id="documents" data-nav="documents" aria-labelledby="doc-h">
     <div class="sh rise">
       <span class="eyebrow">Documents checklist</span>
       <h2 id="doc-h">What to <span class="hl">keep ready</span></h2>
