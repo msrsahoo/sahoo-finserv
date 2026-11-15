@@ -11,7 +11,7 @@
 <meta property="og:site_name" content="Sahoo Finserv">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#050B1F">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230A1430'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%2338bdf8' stroke-width='4.5'/%3E%3Cpath d='M25 23.5h14M25 29.5h14M28.5 23.5c7 0 7 11.5 0 11.5h-3.5l10.5 8.5' fill='none' stroke='%23fff' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="logo-s.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -636,6 +636,12 @@ body:has(.sdlg[open]){overflow:hidden}
 .trust__ico{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#0EA5E9,#2563EB);flex:none}
 .trust__ico svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (prefers-reduced-motion:reduce){.rot__w{transition:none}}
+
+/* new logo */
+.brand__logo{width:40px;height:40px;flex:none;border-radius:11px;background:#fff;padding:3px;object-fit:contain;box-shadow:0 0 0 1px rgba(255,255,255,.18),0 6px 18px -6px rgba(56,189,248,.6)}
+.brand b{font-weight:800;letter-spacing:.01em}
+.brand__a{color:var(--fg)}
+.brand__b{background:linear-gradient(90deg,#2563EB,#38BDF8);-webkit-background-clip:text;background-clip:text;color:transparent}
 </style>
 </head>
 <body>
@@ -646,8 +652,8 @@ body:has(.sdlg[open]){overflow:hidden}
   <div class="wrap">
     <div class="hdr__bar">
       <a class="brand" href="#home" aria-label="Sahoo Finserv, home">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#0A1430"/><circle cx="32" cy="32" r="19" fill="none" stroke="url(#lgA)" stroke-width="4"/><ellipse cx="32" cy="32" rx="27" ry="9.5" fill="none" stroke="#60a5fa" stroke-width="2" opacity=".75" transform="rotate(-25 32 32)"/><path d="M25 23.5h14M25 29.5h14M28.5 23.5c7 0 7 11.5 0 11.5h-3.5l10.5 8.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Sahoo Finserv<small>Finance, Tax &amp; Digital Solutions</small></span>
+        <img class="brand__logo" src="logo-s.webp" width="256" height="256" alt="" aria-hidden="true">
+        <span><b class="brand__a">SAHOO</b> <b class="brand__b">FINSERV</b><small>Smart solutions. Sustainable growth.</small></span>
       </a>
       <nav class="menu" id="menu" aria-label="Primary">
         <a href="#home" data-link="home">Home</a>
@@ -1039,7 +1045,7 @@ body:has(.sdlg[open]){overflow:hidden}
   <footer class="ftr">
     <div>
       <a class="brand" href="#home" aria-label="Sahoo Finserv, back to top">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#0A1430"/><circle cx="32" cy="32" r="19" fill="none" stroke="url(#lgB)" stroke-width="4"/><ellipse cx="32" cy="32" rx="27" ry="9.5" fill="none" stroke="#60a5fa" stroke-width="2" opacity=".75" transform="rotate(-25 32 32)"/><path d="M25 23.5h14M25 29.5h14M28.5 23.5c7 0 7 11.5 0 11.5h-3.5l10.5 8.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <img class="brand__logo" src="logo-s.webp" width="256" height="256" alt="" aria-hidden="true">
         <span>Sahoo Finserv</span>
       </a>
       <p style="margin-top:.7rem">Finance, Tax &amp; Digital Solutions</p>
