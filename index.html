@@ -100,14 +100,14 @@ svg{display:block}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .bg{background:linear-gradient(160deg,#E3EEFF 0%,#ECEBFF 50%,#F1E8FF 100%)}:root:not([data-theme="dark"]) .bg::after,:root:not([data-theme="dark"]) .orb{display:none}}
 
 /* ---------- glass primitives ---------- */
-.hdr__bar::before,.strip,.card,.tacct,.princ,.tab,.panel,.wcard,.mchip,.step,.cta,.mailcard,.formcard,.ftr,.dash,.fchip,.btn--ghost,.eyebrow,.iconbtn{
+.hdr__bar::before,.strip,.card,.acard,.due,.cf,.dtab,.dpanel,.tacct,.princ,.tab,.panel,.wcard,.mchip,.step,.cta,.mailcard,.formcard,.ftr,.dash,.fchip,.btn--ghost,.eyebrow,.iconbtn{
   background:var(--glass-bg);border:1px solid var(--gb);
   box-shadow:inset 0 1px 0 var(--ghi),var(--shadow);
   -webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
 }
 .eyebrow,.btn--ghost,.iconbtn{box-shadow:inset 0 1px 0 var(--ghi)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  .hdr__bar::before,.strip,.card,.tacct,.princ,.tab,.panel,.wcard,.mchip,.step,.cta,.mailcard,.formcard,.ftr,.dash,.fchip,.btn--ghost,.eyebrow,.iconbtn{background:var(--glass-solid)}
+  .hdr__bar::before,.strip,.card,.acard,.due,.cf,.dtab,.dpanel,.tacct,.princ,.tab,.panel,.wcard,.mchip,.step,.cta,.mailcard,.formcard,.ftr,.dash,.fchip,.btn--ghost,.eyebrow,.iconbtn{background:var(--glass-solid)}
   .hero,.insight{background:#0B1638}
 }
 
@@ -446,6 +446,85 @@ body:has(.sdlg[open]){overflow:hidden}
 .ftr__r a:hover{text-decoration:underline}
 @media (max-width:600px){.ftr__r{text-align:left}}
 
+/* who we help */
+.agrid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
+.acard{position:relative;overflow:hidden;isolation:isolate;border-radius:24px;padding:1.6rem;display:flex;flex-direction:column;gap:.85rem;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.acard::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:.55;transition:opacity .3s}
+.acard::after{content:"";position:absolute;z-index:-1;width:16rem;height:16rem;right:-7rem;top:-8rem;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent-2) 20%,transparent),transparent 70%);opacity:.6;transition:opacity .35s,transform .5s}
+.acard:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 45%,var(--gb));box-shadow:inset 0 1px 0 var(--ghi),0 30px 60px -28px color-mix(in srgb,var(--accent) 45%,rgba(0,0,0,.6))}
+.acard:hover::before{opacity:1}
+.acard:hover::after{opacity:1;transform:scale(1.15)}
+.acard__top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.acard__n{font:600 .78rem/1 var(--f-mono);letter-spacing:.12em;color:color-mix(in srgb,var(--muted) 70%,transparent)}
+.acard:hover .ico{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+.acard .ico{transition:background .3s,color .3s}
+.acard h3{font-size:1.25rem;letter-spacing:-.015em;margin-top:.2rem}
+.acard>p{color:var(--muted);font-size:.96rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;padding-top:.85rem;border-top:1px solid var(--line)}
+.chip{display:inline-flex;align-items:center;padding:.38rem .65rem;border-radius:999px;font:500 .72rem/1.1 var(--f-mono);letter-spacing:.01em;color:var(--accent);background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+
+/* compliance calendar */
+.cfil{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.cf{appearance:none;-webkit-appearance:none;margin:0;box-sizing:border-box;cursor:pointer;padding:.55rem 1rem;border-radius:999px;font:600 .88rem/1 var(--f-body);color:var(--muted);transition:color .2s,border-color .2s,background .2s}
+.cf:hover{color:var(--fg);border-color:color-mix(in srgb,var(--accent) 45%,var(--gb))}
+.cf[aria-pressed="true"]{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;box-shadow:0 10px 24px -12px var(--accent)}
+.cf:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.calgrp+.calgrp{margin-top:2.2rem}
+.calgrp__h{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;font:650 1.15rem/1.2 var(--f-display);letter-spacing:-.01em}
+.calgrp__h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.calgrid{list-style:none;margin:0;padding:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17.5rem),1fr))}
+.calgrid--m{grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr))}
+.due{position:relative;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem;border-radius:20px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.due:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 45%,var(--gb))}
+.due__d{display:grid;place-items:center;align-content:center;gap:.3rem;width:4.4rem;min-height:4.4rem;padding:.5rem .3rem;border-radius:16px;text-align:center;color:#fff;background:linear-gradient(150deg,var(--accent),var(--accent-2));box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 12px 24px -14px var(--accent)}
+.due__d b{font:700 1.75rem/1 var(--f-display);letter-spacing:-.04em}
+.due__d small{font:600 .6rem/1.15 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.due__d--sm b{font-size:1.2rem;letter-spacing:-.02em}
+.due__b{display:grid;gap:.35rem;min-width:0}
+.due__b h3{font:650 1rem/1.25 var(--f-display);letter-spacing:-.01em}
+.due__b p{color:var(--muted);font-size:.86rem;line-height:1.45}
+.due .pill{justify-self:start;font-size:.64rem;padding:.26rem .55rem}
+.cat-gst{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,transparent);background:var(--accent-soft)}
+.cat-tds{color:#7C3AED;border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.1)}
+.cat-it{color:var(--accent-2);border-color:color-mix(in srgb,var(--accent-2) 35%,transparent);background:color-mix(in srgb,var(--accent-2) 12%,transparent)}
+.cat-pay{color:#059669;border-color:rgba(5,150,105,.3);background:rgba(5,150,105,.1)}
+.cat-roc{color:#D97706;border-color:rgba(217,119,6,.3);background:rgba(217,119,6,.1)}
+:root[data-theme="dark"] .cat-tds{color:#C4B5FD}:root[data-theme="dark"] .cat-pay{color:#6EE7B7}:root[data-theme="dark"] .cat-roc{color:#FCD34D}
+@media (max-width:560px){.calgrid{gap:.6rem}.due{padding:.8rem;gap:.8rem;border-radius:18px}.due__d{width:3.8rem;min-height:3.8rem;border-radius:14px}.due__d b{font-size:1.45rem}.due__d--sm b{font-size:1.05rem}.due__b p{font-size:.84rem}.calgrp+.calgrp{margin-top:1.8rem}}
+.calgrp.is-empty{display:none}
+.js .acard.rise.in{transition:opacity .8s ease,transform .35s cubic-bezier(.2,.8,.2,1),filter .8s ease,border-color .3s,box-shadow .3s}
+.js .acard.rise.in:hover{transform:translateY(-6px)}
+.calnote{margin-top:1.8rem;font-size:.86rem;color:var(--muted);max-width:52rem}
+.calnote a{color:var(--accent);font-weight:600}
+
+/* documents checklist */
+.docs{display:grid;gap:1.1rem;align-items:start}
+@media (min-width:900px){.docs{grid-template-columns:minmax(0,20rem) 1fr}}
+.dtabs{display:grid;gap:.5rem}
+@media (max-width:899px){.dtabs{grid-template-columns:1fr 1fr}}
+.dtab{appearance:none;-webkit-appearance:none;margin:0;width:100%;text-align:left;font:inherit;color:var(--fg);box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:.8rem;padding:.85rem 1rem;border-radius:18px;position:relative;overflow:hidden;transition:border-color .25s,background .25s,transform .25s}
+.dtab:hover{transform:translateX(3px)}
+.dtab__ic{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:12px;background:var(--accent-soft);color:var(--accent);transition:background .3s,color .3s}
+.dtab__ic svg{width:1.15rem;height:1.15rem;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.dtab b{display:block;font:650 1rem/1.25 var(--f-display);letter-spacing:-.01em}
+.dtab small{display:block;font-size:.8rem;color:var(--muted);margin-top:.1rem}
+.dtab[aria-expanded="true"]{border-color:color-mix(in srgb,var(--accent) 55%,transparent);background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 18%,transparent),color-mix(in srgb,var(--accent-2) 6%,transparent));box-shadow:inset 0 1px 0 var(--ghi),0 14px 34px -18px color-mix(in srgb,var(--accent) 70%,transparent)}
+.dtab[aria-expanded="true"] .dtab__ic{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+.dtab[aria-expanded="true"] b{color:var(--accent)}
+.dtab:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media (max-width:899px){.dtab{grid-template-columns:1fr;gap:.55rem;padding:.85rem}.dtab:hover{transform:none}.dtab small{display:none}}
+.dpanel{position:relative;overflow:hidden;isolation:isolate;border-radius:26px;padding:clamp(1.4rem,3.5vw,2.4rem)}
+.dpanel::after{content:"";position:absolute;z-index:-1;width:22rem;height:22rem;right:-8rem;top:-10rem;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%)}
+.dpanel:not([hidden]){animation:fadein .45s ease both}
+.dpanel h3{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.dpanel>p{color:var(--muted);margin-top:.5rem;max-width:40rem}
+.dlist{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.dlist li{display:flex;align-items:flex-start;gap:.7rem;padding:.75rem .9rem;border-radius:14px;font-size:.93rem;line-height:1.4;background:color-mix(in srgb,var(--accent) 6%,transparent);border:1px solid color-mix(in srgb,var(--accent) 16%,transparent)}
+.dlist svg{width:22px;height:22px;flex:none;padding:3px;border-radius:50%;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.dact{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.btn--wa{background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 10px 26px -10px rgba(37,211,102,.6),inset 0 1px 0 rgba(255,255,255,.35)}
+@media (max-width:560px){.dact .btn{flex:1 1 100%}}
+
 /* ---------- motion ---------- */
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
@@ -623,6 +702,158 @@ body:has(.sdlg[open]){overflow:hidden}
     </div>
   </section>
 
+  <!-- WHO WE HELP -->
+  <section class="sec wrap" id="who" data-nav="services" aria-labelledby="who-h">
+    <div class="sh rise">
+      <span class="eyebrow">Who we help</span>
+      <h2 id="who-h">Built for every stage of your <span class="hl">financial journey</span></h2>
+      <p class="lead">Whether you file one return a year or run a growing team, we tailor our services to where you are today.</p>
+    </div>
+    <div class="agrid">
+      <article class="acard rise">
+        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span><span class="acard__n" aria-hidden="true">01</span></div>
+        <h3>Salaried individuals</h3>
+        <p>Hassle-free returns and smart tax saving, every year.</p>
+        <div class="chips"><span class="chip">ITR filing</span><span class="chip">Form 16</span><span class="chip">Tax saving</span></div>
+      </article>
+      <article class="acard rise">
+        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8h14v-8"/><path d="M10 20v-5h4v5"/></svg></span><span class="acard__n" aria-hidden="true">02</span></div>
+        <h3>Small businesses &amp; shops</h3>
+        <p>Clean books and on-time GST, so you can focus on customers.</p>
+        <div class="chips"><span class="chip">Bookkeeping</span><span class="chip">GST returns</span></div>
+      </article>
+      <article class="acard rise">
+        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15l-3-3c1.5-4.5 5-8 10-9-1 5-4.5 8.5-9 10"/><path d="M9 12H5l2-4h5"/><path d="M12 15v4l4-2v-5"/><path d="M6 16c-1.5 1-2 3-2 4 1 0 3-.5 4-2"/></svg></span><span class="acard__n" aria-hidden="true">03</span></div>
+        <h3>Startups &amp; new companies</h3>
+        <p>From incorporation to your first customers, set up right.</p>
+        <div class="chips"><span class="chip">Company / LLP setup</span><span class="chip">Compliance</span><span class="chip">Digital marketing</span></div>
+      </article>
+      <article class="acard rise">
+        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></span><span class="acard__n" aria-hidden="true">04</span></div>
+        <h3>Professionals &amp; freelancers</h3>
+        <p>Doctors, consultants and creators with income that doesn&rsquo;t fit a payslip.</p>
+        <div class="chips"><span class="chip">ITR</span><span class="chip">Advance tax</span><span class="chip">GST</span></div>
+      </article>
+      <article class="acard rise">
+        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16"/><path d="M8 15l3-4 3 2 5-6"/><path d="M15 7h4v4"/></svg></span><span class="acard__n" aria-hidden="true">05</span></div>
+        <h3>Growing SMEs</h3>
+        <p>Payroll, reporting and systems that scale with your team.</p>
+        <div class="chips"><span class="chip">Payroll &amp; PF/ESI</span><span class="chip">Financial reporting</span><span class="chip">IT services</span></div>
+      </article>
+      <article class="acard rise">
+        <div class="acard__top"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg></span><span class="acard__n" aria-hidden="true">06</span></div>
+        <h3>NRIs &amp; senior citizens</h3>
+        <p>Careful, patient help with returns and planning, wherever you are.</p>
+        <div class="chips"><span class="chip">ITR</span><span class="chip">Tax planning</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE CALENDAR -->
+  <section class="sec wrap" id="calendar" data-nav="services" aria-labelledby="cal-h">
+    <div class="sh rise">
+      <span class="eyebrow">Compliance calendar</span>
+      <h2 id="cal-h">Never miss a <span class="hl">due date</span></h2>
+      <p class="lead">The key GST, TDS, income tax, payroll and ROC deadlines in one place. We track them for you, so you never pay a late fee.</p>
+    </div>
+    <div class="cfil rise" role="group" aria-label="Filter due dates by category">
+      <button class="cf" type="button" data-f="all" aria-pressed="true">All</button>
+      <button class="cf" type="button" data-f="gst" aria-pressed="false">GST</button>
+      <button class="cf" type="button" data-f="tds" aria-pressed="false">TDS</button>
+      <button class="cf" type="button" data-f="it" aria-pressed="false">Income Tax</button>
+      <button class="cf" type="button" data-f="pay" aria-pressed="false">Payroll</button>
+      <button class="cf" type="button" data-f="roc" aria-pressed="false">ROC</button>
+    </div>
+    <div class="calgrp rise">
+      <h3 class="calgrp__h">Every month</h3>
+      <ul class="calgrid calgrid--m">
+          <li class="due" data-cat="tds"><span class="due__d" aria-label="7 Every month"><b>7</b><small>Every month</small></span><div class="due__b"><span class="pill cat-tds">TDS</span><h3>TDS / TCS payment</h3><p>Tax deducted or collected in the previous month.</p></div></li>
+          <li class="due" data-cat="gst"><span class="due__d" aria-label="11 Every month"><b>11</b><small>Every month</small></span><div class="due__b"><span class="pill cat-gst">GST</span><h3>GSTR-1</h3><p>Outward supplies return for monthly filers.</p></div></li>
+          <li class="due" data-cat="gst"><span class="due__d" aria-label="13 Every month"><b>13</b><small>Every month</small></span><div class="due__b"><span class="pill cat-gst">GST</span><h3>IFF (QRMP)</h3><p>Invoice Furnishing Facility for quarterly filers.</p></div></li>
+          <li class="due" data-cat="pay"><span class="due__d" aria-label="15 Every month"><b>15</b><small>Every month</small></span><div class="due__b"><span class="pill cat-pay">Payroll</span><h3>PF &amp; ESI contribution</h3><p>Employer and employee contributions for the previous month.</p></div></li>
+          <li class="due" data-cat="gst"><span class="due__d" aria-label="20 Every month"><b>20</b><small>Every month</small></span><div class="due__b"><span class="pill cat-gst">GST</span><h3>GSTR-3B</h3><p>Summary return and tax payment for monthly filers.</p></div></li>
+          <li class="due" data-cat="gst"><span class="due__d due__d--sm" aria-label="22/24 Every month"><b>22/24</b><small>Every month</small></span><div class="due__b"><span class="pill cat-gst">GST</span><h3>GSTR-3B (QRMP)</h3><p>Quarterly filers: 22nd or 24th, depending on your state.</p></div></li>
+      </ul>
+    </div>
+    <div class="calgrp rise">
+      <h3 class="calgrp__h">Quarterly &amp; annual</h3>
+      <ul class="calgrid">
+          <li class="due" data-cat="roc"><span class="due__d" aria-label="30 May"><b>30</b><small>May</small></span><div class="due__b"><span class="pill cat-roc">ROC</span><h3>LLP Form 11</h3><p>Annual return of the LLP.</p></div></li>
+          <li class="due" data-cat="tds"><span class="due__d" aria-label="31 May"><b>31</b><small>May</small></span><div class="due__b"><span class="pill cat-tds">TDS</span><h3>TDS return, Q4</h3><p>24Q / 26Q for January to March.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="15 Jun"><b>15</b><small>Jun</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>Advance tax, 1st</h3><p>15% of estimated tax for the year.</p></div></li>
+          <li class="due" data-cat="tds"><span class="due__d" aria-label="31 Jul"><b>31</b><small>Jul</small></span><div class="due__b"><span class="pill cat-tds">TDS</span><h3>TDS return, Q1</h3><p>24Q / 26Q for April to June.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="31 Jul"><b>31</b><small>Jul</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>Income tax return</h3><p>Individuals and non-audit cases.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="15 Sep"><b>15</b><small>Sep</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>Advance tax, 2nd</h3><p>45% of estimated tax, cumulative.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="30 Sep"><b>30</b><small>Sep</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>Tax audit report</h3><p>For businesses and professionals under tax audit.</p></div></li>
+          <li class="due" data-cat="roc"><span class="due__d" aria-label="30 Oct"><b>30</b><small>Oct</small></span><div class="due__b"><span class="pill cat-roc">ROC</span><h3>LLP Form 8</h3><p>Statement of account &amp; solvency.</p></div></li>
+          <li class="due" data-cat="tds"><span class="due__d" aria-label="31 Oct"><b>31</b><small>Oct</small></span><div class="due__b"><span class="pill cat-tds">TDS</span><h3>TDS return, Q2</h3><p>24Q / 26Q for July to September.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="31 Oct"><b>31</b><small>Oct</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>ITR, audit cases</h3><p>Businesses and professionals under audit.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="15 Dec"><b>15</b><small>Dec</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>Advance tax, 3rd</h3><p>75% of estimated tax, cumulative.</p></div></li>
+          <li class="due" data-cat="gst"><span class="due__d" aria-label="31 Dec"><b>31</b><small>Dec</small></span><div class="due__b"><span class="pill cat-gst">GST</span><h3>GSTR-9 / 9C</h3><p>GST annual return and reconciliation statement.</p></div></li>
+          <li class="due" data-cat="tds"><span class="due__d" aria-label="31 Jan"><b>31</b><small>Jan</small></span><div class="due__b"><span class="pill cat-tds">TDS</span><h3>TDS return, Q3</h3><p>24Q / 26Q for October to December.</p></div></li>
+          <li class="due" data-cat="it"><span class="due__d" aria-label="15 Mar"><b>15</b><small>Mar</small></span><div class="due__b"><span class="pill cat-it">Income Tax</span><h3>Advance tax, final</h3><p>100% of estimated tax for the year.</p></div></li>
+          <li class="due" data-cat="roc"><span class="due__d" aria-label="AGM +30 days"><small>AGM +</small><b>30</b><small>days</small></span><div class="due__b"><span class="pill cat-roc">ROC</span><h3>AOC-4</h3><p>Financial statements, within 30 days of the AGM.</p></div></li>
+          <li class="due" data-cat="roc"><span class="due__d" aria-label="AGM +60 days"><small>AGM +</small><b>60</b><small>days</small></span><div class="due__b"><span class="pill cat-roc">ROC</span><h3>MGT-7</h3><p>Annual return, within 60 days of the AGM.</p></div></li>
+      </ul>
+    </div>
+    <p class="calnote rise">Dates are as per current law and may be extended by the government. <a href="#contact">Talk to us</a> for dates specific to your business.</p>
+  </section>
+
+  <!-- DOCUMENTS CHECKLIST -->
+  <section class="sec wrap" id="documents" data-nav="services" aria-labelledby="doc-h">
+    <div class="sh rise">
+      <span class="eyebrow">Documents checklist</span>
+      <h2 id="doc-h">What to <span class="hl">keep ready</span></h2>
+      <p class="lead">Pick a service to see the documents we need. Having them ready means faster, error-free filing.</p>
+    </div>
+    <div class="docs rise">
+      <div class="dtabs">
+        <button class="dtab" type="button" id="dt-itr" aria-controls="dp-itr" aria-expanded="true"><span class="dtab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 14l2 2 3.5-4"/></svg></span><span><b>ITR filing</b><small>Income tax return</small></span></button>
+        <button class="dtab" type="button" id="dt-gst" aria-controls="dp-gst" aria-expanded="false"><span class="dtab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><circle cx="12.5" cy="14" r="2.6"/></svg></span><span><b>GST registration</b><small>New GSTIN</small></span></button>
+        <button class="dtab" type="button" id="dt-co" aria-controls="dp-co" aria-expanded="false"><span class="dtab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/><path d="M9 10h.01M15 10h.01"/></svg></span><span><b>Company / LLP registration</b><small>Incorporation</small></span></button>
+        <button class="dtab" type="button" id="dt-bk" aria-controls="dp-bk" aria-expanded="false"><span class="dtab__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M9 15l2 2 4-4"/></svg></span><span><b>Monthly bookkeeping &amp; GST</b><small>Every month</small></span></button>
+      </div>
+      <div class="dpanels">
+        <div class="dpanel" id="dp-itr" role="region" aria-labelledby="dt-itr">
+          <h3>ITR filing</h3>
+          <p>Keep these handy and your return can be filed quickly and accurately.</p>
+          <ul class="dlist"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>PAN and Aadhaar</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Form 16 / salary slips</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Form 26AS and AIS</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Bank statements and interest certificates</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Investment proofs (80C, 80D etc.)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Home loan interest certificate</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Capital gains statements</span></li></ul>
+          <div class="dact">
+            <a class="btn btn--wa" href="https://wa.me/919438670653" target="_blank" rel="noopener">Send documents on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="#contact">Ask a question</a>
+          </div>
+        </div>
+        <div class="dpanel" id="dp-gst" role="region" aria-labelledby="dt-gst" hidden>
+          <h3>GST registration</h3>
+          <p>What we need to apply for your GST registration.</p>
+          <ul class="dlist"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>PAN of business / proprietor</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aadhaar</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Photograph</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Address proof of business premises (rent agreement / electricity bill / NOC)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Bank account proof (cancelled cheque / statement)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Constitution proof (partnership deed / incorporation certificate), if applicable</span></li></ul>
+          <div class="dact">
+            <a class="btn btn--wa" href="https://wa.me/919438670653" target="_blank" rel="noopener">Send documents on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="#contact">Ask a question</a>
+          </div>
+        </div>
+        <div class="dpanel" id="dp-co" role="region" aria-labelledby="dt-co" hidden>
+          <h3>Company / LLP registration</h3>
+          <p>Documents for incorporating your private limited company or LLP.</p>
+          <ul class="dlist"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>PAN and Aadhaar of directors / partners</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Photographs</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Address proof of directors</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Registered office address proof and NOC</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>DSC (digital signature certificate)</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Proposed names</span></li></ul>
+          <div class="dact">
+            <a class="btn btn--wa" href="https://wa.me/919438670653" target="_blank" rel="noopener">Send documents on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="#contact">Ask a question</a>
+          </div>
+        </div>
+        <div class="dpanel" id="dp-bk" role="region" aria-labelledby="dt-bk" hidden>
+          <h3>Monthly bookkeeping &amp; GST</h3>
+          <p>Share these each month and your books and returns stay up to date.</p>
+          <ul class="dlist"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Sales and purchase invoices</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Expense bills</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Bank statements</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Credit / debit notes</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Payroll details, if any</span></li></ul>
+          <div class="dact">
+            <a class="btn btn--wa" href="https://wa.me/919438670653" target="_blank" rel="noopener">Send documents on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--ghost" href="#contact">Ask a question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section class="sec wrap" id="about" data-nav="about" aria-labelledby="about-h">
     <div class="about">
@@ -741,7 +972,7 @@ body:has(.sdlg[open]){overflow:hidden}
         </div>
         <div class="mailcard">
           <span class="lab">WhatsApp</span>
-          <code>+91 94386 70653</code>
+          <code>Chat with us on WhatsApp</code>
           <div class="mailcard__act">
             <a class="btn btn--primary" href="https://wa.me/919438670653" target="_blank" rel="noopener">Chat on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
@@ -789,7 +1020,7 @@ body:has(.sdlg[open]){overflow:hidden}
     </div>
     <div class="ftr__r">
       <a href="mailto:contact@sahoofinserv.com">contact@sahoofinserv.com</a>
-      <a href="https://wa.me/919438670653" target="_blank" rel="noopener">+91 94386 70653</a>
+      <a href="https://wa.me/919438670653" target="_blank" rel="noopener">WhatsApp</a>
       <p>Copyright © <span id="yr">2026</span> Sahoo Finserv. All rights reserved.</p>
     </div>
   </footer>
@@ -906,6 +1137,21 @@ body:has(.sdlg[open]){overflow:hidden}
       if(k!==null){e.preventDefault();sel(k,true)}
     });
   });
+
+  /* compliance calendar filter */
+  var cfs=$$('.cf'),dues=$$('.due');
+  cfs.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    cfs.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+    dues.forEach(function(d){d.hidden=!(f==='all'||d.getAttribute('data-cat')===f)});
+    $$('.calgrp').forEach(function(g){g.classList.toggle('is-empty',!$$('.due:not([hidden])',g).length)});
+  })});
+
+  /* documents checklist */
+  var dtabs=$$('.dtab');
+  dtabs.forEach(function(b){b.addEventListener('click',function(){
+    dtabs.forEach(function(x){var on=x===b,p=document.getElementById(x.getAttribute('aria-controls'));x.setAttribute('aria-expanded',String(on));if(p)p.hidden=!on});
+  })});
 
   /* process reveal */
   var steps=$('#steps');
