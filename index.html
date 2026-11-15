@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sahoo Finserv | Finance, Tax &amp; Digital Solutions</title>
-<meta name="description" content="Sahoo Finserv: bookkeeping, tax filing, GST &amp; TDS returns, compliance, IT services and digital marketing for individuals and businesses, all under one roof.">
+<meta name="description" content="Sahoo Finserv: bookkeeping, tax, GST &amp; TDS returns, business registrations, company setup, payroll, IT and digital marketing, all under one roof.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sahoo Finserv | Finance, Tax &amp; Digital Solutions">
-<meta property="og:description" content="Sahoo Finserv: bookkeeping, tax filing, GST &amp; TDS returns, compliance, IT services and digital marketing for individuals and businesses, all under one roof.">
+<meta property="og:description" content="Sahoo Finserv: bookkeeping, tax, GST &amp; TDS returns, business registrations, company setup, payroll, IT and digital marketing, all under one roof.">
 <meta property="og:site_name" content="Sahoo Finserv">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#050B1F">
@@ -245,6 +245,26 @@ svg{display:block}
 .enq{display:inline-flex;align-items:center;gap:.35rem;font-weight:600;font-size:.92rem;color:var(--accent);text-decoration:none;white-space:nowrap}
 .enq svg{width:16px;height:16px;transition:transform .25s}
 .enq:hover svg{transform:translateX(4px)}
+.card{cursor:pointer}
+.card__acts{display:flex;align-items:center;gap:1rem;margin-left:auto}
+.card:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:24px}
+.more{all:unset;cursor:pointer;font-weight:600;font-size:.92rem;color:var(--fg);white-space:nowrap;border-bottom:1px dashed color-mix(in srgb,var(--fg) 40%,transparent)}
+.more:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.more:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+/* service details pop-up */
+.sdlg{width:min(660px,calc(100vw - 2rem));max-height:calc(100dvh - 2rem);padding:0;border:1px solid var(--gb);border-radius:28px;background:var(--glass-solid);color:var(--fg);box-shadow:inset 0 1px 0 var(--ghi),0 40px 90px -30px rgba(0,0,0,.6);overflow:auto;-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
+.sdlg::backdrop{background:rgba(5,11,31,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.sdlg[open]{animation:fadein .3s ease both}
+.sdlg__in{position:relative;padding:clamp(1.4rem,4vw,2.2rem);display:grid;gap:1.1rem}
+.sdlg__x{position:absolute;top:1rem;right:1rem}
+.sdlg__hd{display:flex;align-items:center;gap:1rem;padding-right:3.2rem}
+.sdlg__hd h3{font-size:clamp(1.35rem,3vw,1.8rem);margin-top:.35rem}
+.sdlg__bd>p{color:var(--muted)}
+.sdlg__bd .ticks{margin-top:1rem}
+.sdlg__bd .ticks li{padding:.7rem .9rem}
+.sdlg__act{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.2rem}
+body:has(.sdlg[open]){overflow:hidden}
+@media (max-width:560px){.sdlg__act .btn{flex:1 1 100%}}
 .card--open{border-style:dashed;border-color:color-mix(in srgb,var(--accent) 40%,var(--gb))}
 
 /* about */
@@ -478,56 +498,85 @@ svg{display:block}
     <div class="sh rise">
       <span class="eyebrow">Services</span>
       <h2 id="svc-h">From books to brand, we&rsquo;ve got you covered</h2>
-      <p class="lead">Accounting, tax, compliance, IT and digital marketing, handled by one trusted team so you can focus on growing your business.</p>
+      <p class="lead">Accounting, tax, compliance, registrations, payroll, IT and digital marketing, handled by one trusted team so you can focus on growing your business.</p>
     </div>
     <div class="svc-grid">
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 13h8"/></svg></span>
         <h3>Bookkeeping &amp; Financial Records</h3>
         <p>Transactions recorded accurately and records kept in order, so your books stay clean and easy to review.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Entries</span><span class="tag">Reconciliation</span><span class="tag">Ledgers</span></div><a class="enq" href="#contact" data-service="Bookkeeping & Financial Records">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>We record and organise your day-to-day transactions so your books are always up to date and ready for tax, GST or your bank.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Recording sales, purchases, expenses and receipts</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Bank and cash reconciliation</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ledgers, cash book and day book maintained</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tracking what customers owe you and what you owe suppliers</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monthly summary of your books</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Entries</span><span class="tag">Reconciliation</span><span class="tag">Ledgers</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Bookkeeping & Financial Records">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
         <h3>Financial Analysis &amp; Reporting</h3>
         <p>Clear reports and a plain-language review of your figures, so decisions rest on facts instead of guesswork.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Statements</span><span class="tag">Trends</span><span class="tag">Reports</span></div><a class="enq" href="#contact" data-service="Financial Analysis & Reporting">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>We turn your figures into clear reports you can read and act on.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Profit &amp; loss account and balance sheet</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cash-flow review</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Month-on-month and year-on-year comparisons</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Plain-language summary of what the numbers show</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Practical suggestions for your next steps</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Statements</span><span class="tag">Trends</span><span class="tag">Reports</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Financial Analysis & Reporting">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9.5 14l2 2 3.5-4"/></svg></span>
         <h3>Tax Filing</h3>
         <p>Income tax preparation and filing for individuals, professionals and businesses, with documents organised from the start.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Preparation</span><span class="tag">Documentation</span><span class="tag">Filing</span></div><a class="enq" href="#contact" data-service="Tax Filing">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>Income tax returns prepared and filed correctly, with your documents organised from the start.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>ITR filing for salaried individuals, professionals and businesses</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Checking Form 16, Form 26AS / AIS and other documents</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Deductions and exemptions reviewed</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Advance tax calculation</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Help with replies to income tax notices</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Preparation</span><span class="tag">Documentation</span><span class="tag">Filing</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Tax Filing">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M4 10h16M9 3v4M15 3v4"/><path d="M9.5 15l2 2 3-3.5"/></svg></span>
         <h3>Returns Filing</h3>
         <p>Periodic returns prepared and filed on time, with due dates tracked so nothing slips through.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">GST returns</span><span class="tag">TDS returns</span><span class="tag">Due dates</span></div><a class="enq" href="#contact" data-service="Returns Filing">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>Your GST and TDS returns prepared and filed before every due date.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>GSTR-1, GSTR-3B and annual GST returns</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Quarterly TDS returns and TDS certificates</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Input tax credit (ITC) reconciliation</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Due-date calendar and reminders</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Records kept for every filing</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">GST returns</span><span class="tag">TDS returns</span><span class="tag">Due dates</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Returns Filing">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
         <h3>Compliance Services</h3>
         <p>Statutory and regulatory compliance handled carefully, so your business stays in good standing.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Registrations</span><span class="tag">Statutory filings</span><span class="tag">Records</span></div><a class="enq" href="#contact" data-service="Compliance Services">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>Statutory and regulatory requirements tracked and met, so your business stays in good standing.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>A compliance calendar for your business</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Statutory filings and registrations kept up to date</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Required records and registers maintained</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Support with department queries</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Regular compliance check-ups</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Registrations</span><span class="tag">Statutory filings</span><span class="tag">Records</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Compliance Services">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><circle cx="12.5" cy="14" r="2.6"/><path d="M11 16.2l-.8 3 2.3-1.1 2.3 1.1-.8-3"/></svg></span>
+        <h3>GST &amp; Business Registrations</h3>
+        <p>GST, Udyam (MSME), PAN, TAN and trade licence registrations, handled from paperwork to certificate.</p>
+        <div class="card__more" hidden><p>We handle your business registrations from start to finish: paperwork, application and follow-up.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>New GST registration and changes to existing registration</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Udyam (MSME) registration</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>PAN and TAN applications</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Shop &amp; establishment and trade licence</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Follow-up until your certificates are issued</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">GST</span><span class="tag">Udyam / MSME</span><span class="tag">PAN &amp; TAN</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="GST &amp; Business Registrations">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+      </article>
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V7l7-4v18"/><path d="M11 9h9v12"/><path d="M3 21h18"/><path d="M7 9v.01M7 13v.01M7 17v.01M15 13h1M15 17h1"/></svg></span>
+        <h3>Company &amp; LLP Setup</h3>
+        <p>Company and LLP incorporation, partnership deeds and yearly ROC/MCA filings, done right and on time.</p>
+        <div class="card__more" hidden><p>We help you choose the right business structure and keep it compliant every year.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Advice on proprietorship, partnership, LLP or private limited</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Private limited company and LLP incorporation</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Partnership and LLP agreement drafting</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Annual ROC / MCA filings</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Changes to directors, partners or business details</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Incorporation</span><span class="tag">LLP</span><span class="tag">ROC / MCA</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Company &amp; LLP Setup">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+      </article>
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/><path d="M15.5 13.5h3M15.5 13.5c1.6 0 1.6 2.6 0 2.6h-.8l2.3 1.9"/></svg></span>
+        <h3>Payroll &amp; PF/ESI</h3>
+        <p>Monthly salary processing, payslips and PF/ESI filings for your team, accurate and on time.</p>
+        <div class="card__more" hidden><p>Your team's salaries and statutory deductions handled accurately every month.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monthly salary calculation and payslips</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>PF and ESI registration</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monthly PF and ESI returns and challans</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>TDS on salaries and Form 16</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Employee records and payroll reports</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Salaries</span><span class="tag">Payslips</span><span class="tag">PF &amp; ESI</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Payroll &amp; PF/ESI">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+      </article>
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M9 9l-2 1.5L9 12M15 9l2 1.5-2 1.5"/></svg></span>
         <h3>IT Services</h3>
         <p>Practical technology support for your business, from websites and software setup to keeping systems running smoothly.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Websites</span><span class="tag">Software</span><span class="tag">Support</span></div><a class="enq" href="#contact" data-service="IT Services">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>Practical technology support so your business runs smoothly.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Business website design and updates</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Accounting and billing software setup</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Domain, business email and hosting setup</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>System maintenance and troubleshooting</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ongoing technical support</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Websites</span><span class="tag">Software</span><span class="tag">Support</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="IT Services">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card rise">
+      <article class="card rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4a1 1 0 0 0 1 1h2l5 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></span>
         <h3>Digital Marketing</h3>
         <p>Grow your reach online with social media, search visibility and campaigns that bring in the right customers.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Social media</span><span class="tag">SEO</span><span class="tag">Campaigns</span></div><a class="enq" href="#contact" data-service="Digital Marketing">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>Get found online and reach the customers who are looking for you.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Social media page setup and management</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Google Business Profile setup</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Search engine optimisation (SEO)</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ad campaigns on social media and Google</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monthly performance reports</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Social media</span><span class="tag">SEO</span><span class="tag">Campaigns</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Digital Marketing">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
-      <article class="card card--open rise">
+      <article class="card card--open rise" tabindex="0" aria-haspopup="dialog">
         <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>
         <h3>Other Services</h3>
         <p>Have a different accounting, financial, IT or marketing requirement? Tell us what you need and we will confirm how we can help.</p>
-        <div class="card__foot"><div class="tags"><span class="tag">Custom requests</span></div><a class="enq" href="#contact" data-service="Other">Ask about it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="card__more" hidden><p>Have a requirement that isn't listed? Tell us what you need.</p><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Other accounting or financial work</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>One-time consultations</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Document preparation and review</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>IT or marketing requests beyond our listed services</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Scope and details confirmed before we start</li></ul></div>
+        <div class="card__foot"><div class="tags"><span class="tag">Custom requests</span></div><div class="card__acts"><a class="enq" href="#contact" data-service="Other">Ask about it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
       </article>
     </div>
   </section>
@@ -697,7 +746,7 @@ svg{display:block}
         </div>
         <div class="mailcard">
           <span class="lab">WhatsApp</span>
-          <code>Chat with us on WhatsApp</code>
+          <code>+91 94386 70653</code>
           <div class="mailcard__act">
             <a class="btn btn--primary" href="https://wa.me/919438670653" target="_blank" rel="noopener">Chat on WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
@@ -716,6 +765,9 @@ svg{display:block}
               <option>Tax Filing</option>
               <option>Returns Filing</option>
               <option>Compliance Services</option>
+              <option>GST &amp; Business Registrations</option>
+              <option>Company &amp; LLP Setup</option>
+              <option>Payroll &amp; PF/ESI</option>
               <option>IT Services</option>
               <option>Digital Marketing</option>
               <option>Other</option>
@@ -744,7 +796,7 @@ svg{display:block}
     </div>
     <div class="ftr__r">
       <a href="mailto:contact@sahoofinserv.com">contact@sahoofinserv.com</a>
-      <a href="https://wa.me/919438670653" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/919438670653" target="_blank" rel="noopener">+91 94386 70653</a>
       <p>Copyright © <span id="yr">2026</span> Sahoo Finserv. All rights reserved.</p>
     </div>
   </footer>
@@ -965,5 +1017,37 @@ svg{display:block}
   <form class="wa-box__ft" id="wa-form"><textarea id="wa-msg" placeholder="Type your message..." aria-label="Your message" required></textarea><button class="wa-box__send" type="submit" aria-label="Send on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5l18-8.5L3 3.5v6.6l12 1.9-12 1.9z"/></svg></button></form>
 </div>
 <script>(function(){var f=document.querySelector('.wa-fab'),b=document.getElementById('wa-box'),m=document.getElementById('wa-msg');function t(o){b.classList.toggle('open',o);f.setAttribute('aria-expanded',o);if(o)setTimeout(function(){m.focus()},200)}f.addEventListener('click',function(){t(!b.classList.contains('open'))});b.querySelector('.wa-box__x').addEventListener('click',function(){t(false)});document.getElementById('wa-form').addEventListener('submit',function(e){e.preventDefault();var v=m.value.trim();if(!v)return;window.open('https://wa.me/919438670653?text='+encodeURIComponent(v),'_blank','noopener');m.value='';t(false)});m.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();document.getElementById('wa-form').requestSubmit()}})})();</script>
+<dialog class="sdlg" id="sdlg" aria-labelledby="sdlg-h">
+  <div class="sdlg__in">
+    <button class="iconbtn sdlg__x" type="button" aria-label="Close details" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="sdlg__hd"><span class="ico" id="sdlg-ico"></span><div><span class="lab">Service details</span><h3 id="sdlg-h"></h3></div></div>
+    <div class="sdlg__bd" id="sdlg-bd"></div>
+    <div><span class="lab">Key areas</span><div class="tags" id="sdlg-tags" style="margin-top:.6rem"></div></div>
+    <div class="sdlg__act">
+      <a class="btn" href="#contact" id="sdlg-enq">Enquire about this service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="btn btn--ghost" type="button" data-close>Close</button>
+    </div>
+  </div>
+</dialog>
+<script>(function(){
+  var d=document.getElementById('sdlg');if(!d||typeof d.showModal!=='function')return;
+  var enq=document.getElementById('sdlg-enq'),last=null;
+  function open(card){
+    document.getElementById('sdlg-h').textContent=card.querySelector('h3').textContent;
+    document.getElementById('sdlg-ico').innerHTML=card.querySelector('.ico').innerHTML;
+    document.getElementById('sdlg-bd').innerHTML=card.querySelector('.card__more').innerHTML;
+    document.getElementById('sdlg-tags').innerHTML=card.querySelector('.tags').innerHTML;
+    enq.dataset.service=card.querySelector('.enq').dataset.service;
+    last=card;d.showModal();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.card'),function(c){
+    c.addEventListener('click',function(e){if(e.target.closest('.enq'))return;open(c)});
+    c.addEventListener('keydown',function(e){if(e.target===c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();open(c)}});
+  });
+  Array.prototype.forEach.call(d.querySelectorAll('[data-close]'),function(b){b.addEventListener('click',function(){d.close()})});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+  enq.addEventListener('click',function(){last=null;d.close()});
+  d.addEventListener('close',function(){if(last)last.focus({preventScroll:true})});
+})();</script>
 </body>
 </html>
